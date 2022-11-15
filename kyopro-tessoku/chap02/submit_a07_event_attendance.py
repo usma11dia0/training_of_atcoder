@@ -1,5 +1,5 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_g
-# answer
+# answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap02/answer_A07.py
 
 # 数値の取得
 d = int(input())
