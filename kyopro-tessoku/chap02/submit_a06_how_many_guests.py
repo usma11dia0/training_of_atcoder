@@ -1,5 +1,5 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ai
-# answer
+# answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap02/answer_A06.py
 
 # 数値の取得
 n, q = map(int, input().split())
