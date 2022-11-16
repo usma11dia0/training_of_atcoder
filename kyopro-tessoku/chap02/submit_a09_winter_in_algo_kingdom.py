@@ -2,7 +2,7 @@
 # answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap02/answer_A09.py
 
 # 教訓
-# 二次元座標の入力データの取得は回答のようにそれぞれ独立させた方が良いかも
+# 二次元座標の入力データの取得は回答のようにそれぞれ独立させた方が良い
 
 # 入力データ取得
 h, w, n = map(int, input().split())
