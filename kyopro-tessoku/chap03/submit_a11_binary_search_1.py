@@ -1,5 +1,5 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_k
-# answer
+# answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap03/answer_A11.py
 
 # 教訓 式の()による計算順序に注意する。
 #      条件式の=有無について確認を忘れない。
