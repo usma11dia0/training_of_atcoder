@@ -1,5 +1,5 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_h
-# answer
+# answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap02/answer_A08.py
 
 # 教訓
 # 下記方法だと、行列を入れ替える必要あり → 手間がかかる。初めに要素h*wの空行列を作成した方が楽
