@@ -2,18 +2,30 @@
 # answer https://atcoder.jp/contests/tessoku-book/submissions/36461972
 # 二分探索(bysect) https://atcoder.jp/contests/tessoku-book/submissions/36130862
 
-# 教訓　配列の中のAが何番目の要素になるかを用いるかに二分探索が応用可能。
-#      条件に該当しないケースの場合分けも忘れない。
+# 教訓　求めたい条件を式で表してみる。
+#       図式化して法則を見つける。
 
-# 解法(1) 二分探索法を用いる　(回答得られず)
+# 解法 二分探索法を用いる
+# １．求めたい条件を式で表す。
+# At - Ai <= K 移項すると
+# At <= Ai + K 等号成立の条件は, At = Ai + K。不等式を満たすためのAtの最大値が求まる。
+# AiもKも固定値のため、Atは一意に定まる。
+
+# 3.2と同様の考え方で"答えはx以上か”を求める際に二分探索を用いると、
+# "配列のある要素以降はAt以上である"が導出出来る。
+# そのために、"配列の要素はAtの値以下であるか"を問として設定し、二分探索で求めるという方針。
+
+# ２．Atが求まれば、求める値はAt - i - 1で導出される.
+
 
 # 関数定義
-# 引数にインデックスをとり,配列aから対応する要素を取得してK以下かどうかを判定
-def search(mid: int, k: int, a: list, a_i: int) -> bool:
+# a[mid]がa_t以下であるかを判定
+# YesであればTrue,NoであればFalseを返す。
+def search(mid: int, a: list, a_t: int) -> bool:
 
-    if a[mid] - a_i <= k:
+    if a[mid] <= a_t:
         return True
-    elif a[mid] - a_i > k:
+    elif a[mid] > a_t:
         return False
 
 
@@ -29,21 +41,23 @@ for i, a_i in enumerate(a):
     # 配列aのインデックス(始めと終わり)を取得
     left = 0
     right = n - 1
+
+    # Atの値を導出する
+    a_t = a_i + k
+
     while left <= right:
         mid = (left + right) // 2
-        if left == n - 1:
-            r_i = left + 1
-            break
         if left == right:
             r_i = left
             break
-        if search(mid, k, a, a_i) == True:
-            if a[mid] - a_i == k:
-                r_i = mid + 1
-                break
+        if search(mid, a, a_t) == True:  # a[mid]がa_t以下
             left = mid + 1
-        elif search(mid, k, a, a_i) == False:
+        elif search(mid, a, a_i) == False:  # a[mid]がa_tより大きい
             right = mid
-    cnt += r_i - (i + 1)
+    if left != 6:
+        cnt += r_i - (i + 1)
+    else:
+        cnt += r_i - i
+
 
 print(cnt)
