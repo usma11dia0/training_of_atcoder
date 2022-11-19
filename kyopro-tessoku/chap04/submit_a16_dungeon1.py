@@ -2,6 +2,7 @@
 # answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap04/answer_A16.py
 
 # 教訓　部屋番号とインデックスを一致させるためには要素数+1にする
+#       DPを考える際は、最後の行動で場合分けすると見通しが良くなることがある。
 
 # 入力データ取得
 n = int(input())
