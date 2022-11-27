@@ -1,4 +1,4 @@
-# question
+# question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_x
 # answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap04/answer_A24.py
 
 # 教訓 通常のDPを行った場合の回答(TLEとなってしまう)
