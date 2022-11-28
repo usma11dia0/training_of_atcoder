@@ -1,7 +1,7 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_z
 # answer
 
-# 教訓：
+# 教訓：下記回答だとTLEになる。
 
 import sys
 
