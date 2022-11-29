@@ -1,5 +1,5 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_z
-# answer
+# answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap05/answer_A26.py
 
 # 教訓：すべての合成数は2以上√x以下の約数を持つことを利用する。
 #       よく用いる処理は関数化して再利用性を高める。
