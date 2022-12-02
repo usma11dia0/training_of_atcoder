@@ -1,7 +1,8 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_af
 # answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap05/answer_A32.py
 
-# 教訓：空配列の要素数は,0を必ず含む点に注意。
+# 教訓：空配列の要素数は0を必ず含む点に注意。
+#       if文のand条件 , or条件に要注意。
 
 
 # 入力データの取得
