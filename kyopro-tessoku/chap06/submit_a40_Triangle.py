@@ -11,10 +11,8 @@ A = list(map(int, input().split()))
 
 cnt = [0] * (100 + 1)  # 0番目の要素を加味して +1。cnt[100]は101番目
 
-
 for i in range(0, N):
     cnt[A[i]] += 1
-
 
 # 答えを導出する
 ans = 0
