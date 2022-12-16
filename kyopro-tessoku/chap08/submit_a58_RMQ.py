@@ -15,7 +15,7 @@ class segtree:
         self.size = 1  # sizeはセグメント木の末端の最小単位
         while self.size < n:  # セグメント木の要素を2^kで示すため、size をn以上で最小の2^k数に設定
             self.size *= 2
-        self.dat = [0] * (self.size * 2)  # セグメント木全体の要素数は、末端の要素数×2 - 1。最後の要素は無視。
+        self.dat = [0] * (self.size * 2)  # セグメント木全体の要素数は、末端の要素数×2 - 1。先頭の要素は無視。
 
     # クエリ1に対する処理
     def update(self, pos, x):  # posは末端の要素番号
