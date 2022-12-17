@@ -10,6 +10,7 @@ class segtree:
     # 初期化
     def __init__(self, n):
         # セグメント木の各階層に0を入れる。
+        # 末端の要素数を導出し、要素数*2を計算することでセグメント木全体を作成する。
         # 与えられたn <= 末端の要素数2^kを満たす最小の2^k(self.size)を求める
         self.size = 1
         while self.size < n:
