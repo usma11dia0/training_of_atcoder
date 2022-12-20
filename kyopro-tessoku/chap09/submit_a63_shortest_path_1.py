@@ -1,7 +1,8 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_an
 # answer https://github.com/E869120/kyopro-tessoku/blob/main/codes/python/chap09/answer_A63.py
 
-# 教訓
+# 教訓 なぜかTLE
+# → 原因 dist[nex] == dist[pos] + 1 として代入式が条件式になってしまっている。
 
 from collections import deque
 
