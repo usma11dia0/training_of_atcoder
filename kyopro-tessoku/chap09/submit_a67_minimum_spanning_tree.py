@@ -15,7 +15,7 @@ class unionFind:
     # 初期化
     def __init__(self, n):
         self.n = n  # Union-Find木の頂点の数
-        self.par = [-1] * (n + 1)  # 各頂点の親は、初期状態では無し ※1-indexedで実装
+        self.par = [-1] * (n + 1)  # 各頂点の親は初期状態では自分自身(親が自分自身≒親無しの場合-1) ※1-indexedで実装
         self.size = [1] * (n + 1)  # 各頂点に紐づくノードの数は、初期状態では1 ※1-indexedで実装
 
     # 頂点xのrootを調べる関数
