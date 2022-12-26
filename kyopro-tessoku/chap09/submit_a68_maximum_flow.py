@@ -45,18 +45,25 @@ def maxflow(N, s, t, edges):
     # （ここは書籍とは少し異なる実装をしているため、8 行目は G[a] に追加された後なので len(G[a]) - 1 となっていることに注意）
     G = [list() for i in range(N + 1)]
     # G(隣接リスト)内に残余グラフに必要な値を入れていく
-    for a, b, c in edges:
-        G[a].append(maxflow_edge(b, c, len(G[b])))  # lenの解釈：revは隣接している頂点の隣接しているノードの数
-        G[b].append(maxflow_edge(a, 0, len(G[a]) - 1))
+    for a, b, c in edges:  # lenの解釈：revは隣接している頂点の隣接しているノードの数
+        G[a].append(maxflow_edge(b, c, len(G[b])))  # a → b の矢印
+        G[b].append(maxflow_edge(a, 0, len(G[a]) - 1))  # b → a の矢印
+
+        # ※maxflow_edgeの第三引数 lenの解釈
+        # len(G[b])は逆辺の頂点であるbの隣接リスト内にaが何番目に来るかを示す。
+        # aは直後にG[b]隣接リスト内へ追加されるため、最後の要素になるはず。→ 隣接リストの長さで要素番号を取得
+        # bも同様に最後の要素になるはず。しかし直前にG[a]隣接リスト内へ追加されたため、要素番号はlen-1.
+
         # (a, b, c) = (1, 2, 5)の時のG
         # G: [[], [<__main__.maxflow_ed...093FFD210>], [<__main__.maxflow_ed...0948C0890>], [], [], [], []]
         # Gの中にはmaxflow_edgeクラスで生成されたインスタンスがそれぞれリストの中に格納される。
         # G[1]: [<__main__.maxflow_ed...093FFD210>]　※リスト内にインスタンスが格納されている点に注意
         # G[1][0]: <__main__.maxflow_ed...093FFD210>
         # ・G[1][0].to: 2  ・G[1][0].cap: 5　・G[1][0].rev: 0 ※1 → 2のフローを示す
-        # ・G[2][0].to: 1  ・G[2][0].cap: 0  ・G[2][0].rev: 0 ※2 → 1のフローを示す?
+        # ・G[2][0].to: 1  ・G[2][0].cap: 0  ・G[2][0].rev: 0 ※2 → 1のフローを示す
 
-    INF = 10**10
+    INF = 10**10  # フローが流せなくなるごとにdfsで0が返る。F＝０になるまで繰り返すのでINFの初期値は無限大にしておく。
+    # Fは深さ優先探索にてmin(F, e.cap)となり、どんどん小さい値へ更新されていく。→初期値は無限大にしておく。
     total_flow = 0
     while True:
         used = [False] * (N + 1)
