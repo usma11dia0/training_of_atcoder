@@ -22,7 +22,7 @@ for i in range(1, N + 1):
     accu_matrix[A[i]][B[i]] += 1
     accu_matrix[C[i] + 1][D[i] + 1] += 1
     accu_matrix[A[i]][D[i] + 1] -= 1
-    accu_matrix[D[i] + 1][B[i]] -= 1
+    accu_matrix[C[i] + 1][B[i]] -= 1
 
 # 累積和行列の作成(積雪量の導出)
 # 横方向に累積和を求める
