@@ -11,6 +11,7 @@
 # mid: left,rightの秒数の中間, k:目標枚数, n:N台のプリンター, a:プリンターが1秒に印刷できる枚数
 def check(mid: int, k: int, n: int, a: int) -> bool:
     sum = 0
+    # mid秒後に印刷可能なチラシの枚数(sum枚)
     for i in range(0, n):
         sum += mid // a[i]
     if sum >= k:
