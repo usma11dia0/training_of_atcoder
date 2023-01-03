@@ -33,7 +33,7 @@ for i in range(0, N - 1):
             left = mid + 1
         else:
             right = mid
-    cnt += left - (i + 1)
+    cnt += (left) - (i + 1)
 
 
 print(cnt)
