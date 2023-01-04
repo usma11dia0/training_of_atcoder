@@ -12,8 +12,8 @@ N, K = map(int, input().split())
 A = list(map(int, input().split()))  # 0-indexed
 
 # A[mid] - A　<= K がTrueかどうかを判定
-# → Trueだった場合、答えはmid～rightの間
-# → Falseだった場合、答えはleft～mid-1の間
+# → Trueだった場合、答えはmid+1～rightの間
+# → Falseだった場合、答えはleft～midの間
 def binary_search(mid: int, A: list, K: int, index: int) -> bool:
     if A[mid] - A[index] <= K:
         return True
@@ -21,21 +21,32 @@ def binary_search(mid: int, A: list, K: int, index: int) -> bool:
         return False
 
 
+# left = 6が答えになるときと, left = 7が答えになる時の違いは?
+
 cnt = 0
 for i in range(0, N - 1):
     left = 0
     right = N - 1
     while left <= right:
-        if left == right:
+        # leftが末尾まで移動した場合は処理を続行 (left=right=6,mid=6を計算)
+        # left = N - 1が答えの時に無限ループになる点に注意。
+        if left == right and left != N - 1:
             break
         mid = (left + right) // 2
         if binary_search(mid, A, K, i):
             left = mid + 1
         else:
             right = mid
-    cnt += (left) - (i + 1)
-
-
+            # left = N - 1が答えの時にループを抜け出すための条件
+            if right == N - 1:
+                break
+    cnt += left - (i + 1)
 print(cnt)
-# left = 1, right = 2, mid = 1, index = 0
+
+# left = mid, right = mid-1 だと二分探索出来ない理由
+# left = 1, right = 2, mid = 1, index = 0の時、
 # A[mid]=12, A[index]=11
+# 二分探索条件では, A[mid] - A[index] <= 10がTrueになり、left = midの更新がなされる
+# → leftが変わらず無限ループとなる
+
+# A = [11, 12, 16, 22, 27, 28, 31]
