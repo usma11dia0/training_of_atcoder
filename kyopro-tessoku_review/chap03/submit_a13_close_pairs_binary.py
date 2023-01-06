@@ -29,7 +29,7 @@ for i in range(0, N - 1):
     right = N - 1
     while left <= right:
         # leftが末尾まで移動した場合は処理を続行 (left=right=6,mid=6を計算)
-        # left = N - 1が答えの時に無限ループになる点に注意。
+        # left = N - 1が答えの時に無限ループになる点に注意
         if left == right and left != N - 1:
             break
         mid = (left + right) // 2
