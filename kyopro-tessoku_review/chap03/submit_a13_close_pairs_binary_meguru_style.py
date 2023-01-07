@@ -37,5 +37,3 @@ for i in range(0, N - 1):
     ans += (ok + 1) - (i + 1)
 
 print(ans)
-
-# A = [11, 12, 16, 22, 27, 28, 31]
