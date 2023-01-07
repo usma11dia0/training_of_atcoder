@@ -1,7 +1,9 @@
 # question https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_m
 # answer
 
-# 参考資料：
+# 教訓：しゃくとり法の考え方の基礎は、
+
+# 参考資料：https://www.akiradeveloper.com/post/syakutori/
 
 # 入力データ取得
 n, k = map(int, input().split())

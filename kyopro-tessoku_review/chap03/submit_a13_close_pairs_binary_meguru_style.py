@@ -9,6 +9,7 @@
 # https://www.forcia.com/blog/001434.html
 
 # 二分探索用の関数を定義
+# A[mid]-A[i]の差がK以下になる場合True,そうでない場合にFalseを返す。
 def is_ok(mid: int, i: int, K: int, A: list) -> bool:
     if A[mid] - A[i] <= K:
         return True
