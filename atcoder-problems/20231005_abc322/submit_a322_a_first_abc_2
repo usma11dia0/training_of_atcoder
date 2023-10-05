@@ -1,0 +1,16 @@
+def check_start_idx(target: str, n :int, s: str):
+  start_str_idx = 0
+  last_str_idx = len(target)
+
+  while last_str_idx <= n:
+    if s[start_str_idx : last_str_idx] == target:
+      return start_str_idx + 1
+    start_str_idx += 1
+    last_str_idx = start_str_idx + len(target) 
+  return -1
+
+if __name__ == "__main__":
+  n = int(input())
+  s = str(input())
+
+  print(check_start_idx("ABC", n, s))
